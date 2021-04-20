@@ -12,8 +12,8 @@ services:
         #     - DB_PASSWORD=root
         volumes:
             - ./laravel:/var/www
-            - ./.docker/script:/var/www/.docker/script
-            - ./.docker/app:/var/www/.docker/app
+            # - ./.docker/script:/var/www/.docker/script
+            # - ./.docker/app:/var/www/.docker/app
         networks: 
             - app_network
         depends_on: 
