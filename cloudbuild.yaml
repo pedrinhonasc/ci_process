@@ -2,7 +2,7 @@ steps:
 
 - id: "Rodando docker-compose"
   name: 'gcr.io/$PROJECT_ID/docker-compose:latest'
-  args: ['-f', 'docker-compose.cloudbuild.yaml', 'up', '-d', '--build']
+  args: ['-f', 'docker-compose.cloudbuild.yaml', 'up', '-d']
 
 - id: "Chown em /var/www"
   name: 'gcr.io/cloud_builders/docker'
@@ -23,10 +23,6 @@ steps:
 - id: "Rodando key:generate"
   name: 'gcr.io/cloud_builders/docker'
   args: ['exec', '-t', 'app', 'php', '/var/www/artisan', 'key:generate']
-
-- id: "Rodando docker ps 2"
-  name: 'gcr.io/cloud_builders/docker'
-  args: ['ps']
 
 - id: "Rodando migrations"
   name: 'gcr.io/cloud_builders/docker'
