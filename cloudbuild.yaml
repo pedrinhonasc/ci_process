@@ -4,9 +4,9 @@ steps:
   name: 'gcr.io/$PROJECT_ID/docker-compose:latest'
   args: ['-f', 'docker-compose.cloudbuild.yaml', 'up', '-d']
 
-- id: "Chown em /var/www"
-  name: 'gcr.io/cloud_builders/docker'
-  args: ['exec', '-u', 'root', '-t', 'app', 'chown', '-R', 'www-data:www-data', '/var/www']
+# - id: "Chown em /var/www"
+#   name: 'gcr.io/cloud_builders/docker'
+#   args: ['exec', '-u', 'root', '-t', 'app', 'chown', '-R', 'www-data:www-data', '/var/www']
 
 - id: "Rodando docker ps"
   name: 'gcr.io/cloud_builders/docker'
